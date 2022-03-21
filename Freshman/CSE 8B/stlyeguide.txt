@@ -1,0 +1,218 @@
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+UNIVERSITY OF CALIFORNIA, SAN DIEGO
+
+CSE 8B Coding Style Guidelines
+File Headers
+Main class
+Requirement: The source file for the MAIN CLASS must have a main file header comment located at the beginning of the file containing the following:
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Title:              (program's title)
+// Files:              (list of source files)
+// Quarter:            (course) Spring 2020
+//
+// Author:             (your name)
+// Email:              (your email address)
+// Instructor's Name:  (name of your instructor)
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+//
+//                  CHECK ASSIGNMENT PAGE TO see IF PAIR-PROGRAMMING IS ALLOWED
+//                  If pair programming is allowed:
+//                  1. Read PAIR-PROGRAMMING policy
+//                  2. Choose a partner wisely
+//                  3. Complete this section for each program file
+//
+// Pair Partner:        (name of your pair programming partner)
+// Email:               (email address of your programming partner)
+// Instructors's Name:  (name of your partner's instructor)
+// Lab Section:         (your partner's lab section number)
+//
+//////////////////// STUDENTS WHO GET HELP FROM OTHER THAN THEIR PARTNER //////
+//                   must fully acknowledge and credit those sources of help.
+//                   Instructors and TAs do not have to be credited here,
+//                   but roommates, relatives, strangers, etc do.
+//
+// Persons:          Identify persons by name, relationship to you, and email.
+//                   Describe in detail the the ideas and help they provided.
+//
+// Online sources:   Avoid web searches to solve your problems, but if you do
+//                   search, be sure to include Web URLs and description of
+//                   of any information you find.
+//////////////////////////// 80 columns wide //////////////////////////////////
+Other classes
+Requirement: Source files for OTHER CLASSES must have a file header comment located at the beginning of the file containing the following:
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                   ALL STUDENTS COMPLETE THESE SECTIONS
+// Main Class File:    (name of main application class)
+// File:               (name of this class's file)
+// Quarter:            (course) Spring 2020
+//
+// Author:             (your name and email address)
+// Instructor's Name:  (name of your instructor)
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+// Pair Partner:       (name of your pair programming partner)
+// Email:              (email address of your programming partner)
+// Instructor's Name:  (name of your partner's instructor)
+//
+//////////////////// STUDENTS WHO GET HELP FROM OTHER THAN THEIR PARTNER //////
+//                   fully acknowledge and credit all sources of help,
+//                   other than Instructors and TAs.
+//
+// Persons:          Identify persons by name, relationship to you, and email.
+//                   Describe in detail the the ideas and help they provided.
+//
+// Online sources:   Avoid web searches to solve your problems, but if you do
+//                   search, be sure to include Web URLs and description of
+//                   of any information you find.
+//////////////////////////// 80 columns wide //////////////////////////////////
+Class Header
+Requirement: Each class must have a header comment located immediately before the class declaration containing the following:
+
+
+/**
+ * (Write a succinct description of this class here. You should avoid
+ * wordiness and redundancy.)
+ *
+ * Bugs: (a list of bugs and other problems)
+ *
+ * @author (your name)
+ */
+This form for the class header is the standard for documenting java programs. It is refered to as a "javadoc" comment because it is used by the javadoc program to automatically generate documentation in HTML format. You will not be required to run javadoc on your programs but it is a useful capability to know about. For more information about javadoc, you should visit Oracle's website: How to Write Doc Comments for the Javadoc Tool
+
+Method Header
+Requirement: Each method must have a header comment located immediately before the method declaration. Include the information below but leave out parameter and/or return-value comments if the method has none. The method description must state preconditions and postconditions. Preconditions are requirements that must be met before entering the method, and postconditions are results from executing the method. Do not state the obvious such as "an object needs to be created before calling this instance method". Instead specify things that may be overlooked or unexpected.
+
+
+/**
+ * (Write a succinct description of this method here.)
+ *
+ * @param (parameter name) (Describe the first parameter here)
+ * @param (parameter name) (Do the same for each additional parameter)
+ * @return (description of the return value)
+ */
+This form for the class header is the standard for documenting java programs. It is refered to as a "javadoc" comment because it is used by the javadoc program to automatically generate documentation in HTML format. You will not be required to run javadoc on your programs but it is a useful capability to know about. For more information about javadoc, you should visit Oracle's website: How to Write Doc Comments for the Javadoc Tool
+
+Inline Comments
+If there is a length of code that is left unexplained, take the time to type a non-redundant line summarizing this length of code (e.g. // initialize an int is redundant, vs. // set initial length to 10 inches ). It will let others who look at your code understand what's going on without having to spend time understanding your logic first. But don't be too descriptive, as too many comments reduces readability.
+
+Requirement: Use comments within the body of methods to:
+
+highlight the major steps of your algorithm
+explain long calculations or conditions
+clarify convoluted or unusual code
+mark locations where you suspect a bug may exist
+mark locations where improvements or enhancements are planned
+Do not use comments in methods to explain things that are obvious to programmers. For example, it is not useful to provide comments such as "this assignment statement assigns 22 to the variable x". Instead use comments to point out things that are not immediately evident or to highlight sections of code.
+
+Example inline comment:
+
+
+private int countCapitalLetters(String word)
+{
+    // counter to keep track of number of letters <- REDUNDANT, UNDESIRABLE COMMENT
+    int count = 0;
+    // iterate through characters and increment count when uppercase
+    for (int i = 0; i < word.length(); i++) {
+        if (Character.isUpperCase(word.charAt(i))) {
+            count++;
+        }
+    }
+    return count;
+}
+Proper Indentation
+Indent each block of code consistently (e.g., method body, loop body). Line up the lines in the block so that they are all indented to the same degree. Make sure you use spaces instead of tabs.
+
+Descriptive Variable Names
+The names of your variables should describe the data they hold. Your variable names should be words (or abbreviations), not single letters.
+
+Exception: If it is a loop index like i, j, k, one char is OK and sometimes preferred.
+
+Examples:
+
+e.g., a --> indexOfApple
+e.g., letter1 and letter2 --> lowerCaseLetter and upperCaseLetter
+Avoid Using Magic Numbers
+Magic numbers are direct usages of numerical or text values throughout the code that should be refactored for readability and easier code maintenance( i.e. any value that is not -1, 0, or 1. This applies to chars as well. These values should be stored in a private static final variable (usually named with caps and underscores). Use the keyword "private", unless we specify to use "public", since most likely no other classes and files need to access these constants. These variables names should also be descriptive and placed in the beginning of the class/method grouped together. For example, private static final int TWO = 2; is not descriptive enough; name it after its purpose, like private static final int LENGTH = 2;
+
+Exception: Magic numbers can be used for testing.
+
+Example magic number refactor:
+
+
+/**
+ * In this example, 7 is used as the max password size. To avoid having
+ * to sprinkle the value 7 all over the code, MAX_PASSWORD_SIZE is used
+ * instead, which makes more sense. If the max password size needs to be
+ * changed, the value is updated everywhere MAX_PASSWORD_SIZE is used.
+ */
+public class Foo {
+    public void setPassword(String password) {
+        // don't do this
+        if (password.length() > 7) {
+            System.out.println("Password is too long!");
+        }
+    }
+}
+// This should be refactored to:
+public class Foo {
+    private static final int MAX_PASSWORD_SIZE = 7;
+    private static final String PASSWORD_LONG = "Password is too long!";
+
+    public void setPassword(String password) {
+        if (password.length() > MAX_PASSWORD_SIZE) {
+            System.out.println(PASSWORD_LONG);
+        }
+    }
+}
+Write Short Methods
+Keep in mind that you should be optimizing your code after you have understood the problem, planned an approach to your code, written some pseudocode, written the actual code, and have checked that the code behaves correctly. To optimize, break your methods into sub-methods if they are too complicated or long. If you find yourself having to repeat typing similar code (can be copy-pasted), then modularize the code by making a helper method.
+
+Write Short Lines
+Each line of code should be no longer than 80 characters, so it can fit in a reasonable size window. Your vim setup should highlight lines that are longer than 80 characters. You may find that you need to wrap your lines of code to preserve the character limit (examples below). You can do so by following these general principles:
+
+Break after a comma (example 1, 3 and 4)
+Break before/after an operator (example 2 and 5)
+Align the new line with the beginning of the expression at the same level of the previous line (example 4 and 5)
+If the above rules lead to confusing code or to code that's squished up against the right margin, indent about 8 spaces instead (all examples)
+Examples of line wrapping style:
+
+
+// Example 1: calling a method
+someMethod(longExpression1, longExpression2, longExpression3,
+    longExpression4, longExpression5);
+
+// Example 2: math expression
+longName1 = longName2 * (longName3 + longName4 - longName5)
+          + CONSTANT * longname6;
+
+// Example 3: method header
+int someMethod(int anArg, Object anotherArg, String yetAnotherArg,
+        Object andStillAnother) {
+    ...
+}
+
+// Example 4: method header with a lot of arguments
+private static synchronized horkingLongMethodName(int anArg,
+        Object anotherArg, String yetAnotherArg,
+        Object andStillAnother) {
+    ...
+}
+
+// Example 5: conditional statements
+if ((condition1 && condition2)
+        || (condition3 && condition4)
+        ||!(condition5 && condition6)) {
+    doSomethingAboutIt();
+}
+// THIS COULD ALSO WORK
+if ((condition1 && condition2) || (condition3 && condition4)
+        ||!(condition5 && condition6)) {
+    doSomethingAboutIt();
+} 
+Last update: October 14, 2020. Content adapted from previous CSE courses by Adalbert Gerald Soosai Raj, Greg Miranda, and Paul Cao.
